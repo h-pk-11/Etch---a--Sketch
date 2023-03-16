@@ -16,24 +16,8 @@
     </div>
 
     <div id="body">
-
-        <div class="resolution-panel" role="slider" aria-valuemin="30" aria-valuemax="60" tabindex="0" aria-valuenow="52" aria-valuetext="52% volume" aria-label="Volume" title="Volume"><div class="ytp-volume-slider" draggable="true" style="touch-action: none;"><div class="ytp-volume-slider-handle" style="left: 21px;"></div></div></div>
-
-        <div id="selection-1">
-        
-            <div class="btn-group">
-
-                <div class="name"><h4>Brush</h4></div>
-                <button id="black"><h4>Black</h4></button>
-                <button id="red"><h4>Red</h4></button>
-                <button id="random"><h4>Random</h4></button>
-                
-            </div>
-            
-        </div>
     
         <div id="main">
-            
     
             <div id="content">
 
@@ -47,16 +31,35 @@
     
         </div>
 
-        <div id="selection-2">
+        <div id="selection">
         
             <div class="btn-group">
 
-                <div class="name"><h4>Edit</h4></div>
-                
-                <button id="padSize"><h4>Pad-size</h4></button>
+                <button id="black"><h4>Black</h4></button>
+                <button id="red"><h4>Red</h4></button>
+                <button id="random"><h4>Random</h4></button>
                 <button id="erase"><h4>Erase</h4></button>
                 <button id="clearAll"><h4>Clear-all</h4></button>
                 
+            </div>
+
+            <div id="padSize">
+                <div id="padSize-slider">
+
+                    <div class="sliderValue">
+                    
+                    </div>
+    
+                    <div class="field">
+                        <div class="value min">20</div>
+                        <input class="slider" type="range" min="20" max="80" step="10" value="50">
+                        <div class="value max">80</div>
+                        <div class="progress"></div>
+                    </div>
+                    
+                    </div>
+    
+                </div>
             </div>
             
         </div>
