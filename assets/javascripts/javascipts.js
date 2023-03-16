@@ -1,4 +1,36 @@
 "use strict"
+
+// delete old resolution
+
+function deleteOldResolution(){
+    const r = document.querySelector(':root');
+    const rs = getComputedStyle(r);
+    const n = Number(rs.getPropertyValue('--resolution'));
+
+    for(let i = 1; i<= n*n; i++){
+        let item = document.getElementById(`${i}`);
+        container.removeChild(item);
+    }
+}
+
+// change resolution
+
+const container = document.querySelector('#container');
+const root = document.documentElement;
+
+function changeResolution(){
+    deleteOldResolution();
+    const n = this.value;
+    root.style.setProperty('--resolution', n);
+
+    for(let i = 1; i <= n*n; i++){
+        const item = document.createElement('div');
+        item.setAttribute('class',`item`);
+        item.setAttribute('id',`${i}`);
+        container.appendChild(item);
+    }
+}
+
 // pad-size
 
 const sliderValue = document.querySelector('.sliderValue');
@@ -19,32 +51,21 @@ function setSlider(){
     sliderValue.style.left = `calc(${newVal}% + (${newPosition}px))`;
 }
 
+// (initial)
 document.addEventListener('DOMContentLoaded',setSlider);
+const r = document.querySelector(':root');
+const rs = getComputedStyle(r);
+const n = Number(rs.getPropertyValue('--resolution'));
+
+for(let i = 1; i <= n*n; i++){
+    const item = document.createElement('div');
+    item.setAttribute('class',`item`);
+    item.setAttribute('id',`${i}`);
+    container.appendChild(item);
+}
 
 slider.addEventListener('input', setSlider);
-
-
-// const container = document.querySelector('#container');
-
-// const inputBtn = document.querySelector('.slider');
-
-// inputBtn.addEventListener ('mouseup', changeResolution);
-
-// let root = document.documentElement;
-
-// function changeResolution(){
-//     root.style.setProperty('--resolution', n);
-    
-// }
-
-// for(let i = 1; i <= n*n; i++){
-//     const item = document.createElement('div');
-//     item.setAttribute('class',`item`);
-//     item.setAttribute('id',`${i}`);
-//     container.appendChild(item);
-// }
-
-// pad-size
+slider.addEventListener('input', changeResolution);
 
 
 
